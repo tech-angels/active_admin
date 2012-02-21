@@ -21,7 +21,7 @@ module ActiveAdmin
       # Override the standard finder to accept a proc
       def collection_from_options
         if options[:collection].is_a?(Proc)
-          options[:collection].call
+          options[:collection].bind(template).call
         else
           super
         end
