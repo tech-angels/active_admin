@@ -292,15 +292,6 @@ describe ActiveAdmin::FormBuilder do
     end
   end
 
-  context "block evaluation context" do
-    it "should evaluate form block in the view context" do
-      build_form do |f|
-        $form_eval_context = self
-      end
-      $form_eval_context.should be_kind_of(ActionView::Base)
-    end
-  end
-
 
   { 
     "input :title, :as => :string"        => /id\=\"post_title\"/,
@@ -319,7 +310,6 @@ describe ActiveAdmin::FormBuilder do
      body.scan(regex).size.should == 2
    end
   end
-
 
   describe "datepicker input" do
     let :body do
